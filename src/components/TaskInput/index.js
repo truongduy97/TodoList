@@ -17,6 +17,7 @@ export default class TaskInput extends Component {
       new_task_title: event.target.value
     });
   };
+
   render() {
     return (
       <section className="task-input">
