@@ -19,17 +19,17 @@ export default class TaskInput extends Component {
   };
   render() {
     return (
-      <section class="task-input">
-        <form onSubmit={this.onSubmitHandler} class="input-group mb-3">
+      <section className="task-input">
+        <form onSubmit={this.onSubmitHandler} className="input-group mb-3">
           <input
             onChange={this.onChangeHanlder}
             value={this.state.new_task_title}
             type="text"
-            class="form-control"
+            className="form-control"
             placeholder="Input task here"
           />
-          <div class="input-group-append">
-            <button class="btn btn-primary">Add</button>
+          <div className="input-group-append">
+            <button className="btn btn-primary">Add</button>
           </div>
         </form>
       </section>

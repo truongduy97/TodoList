@@ -13,11 +13,16 @@ class TodoList extends React.Component {
       {
         title: "task 2",
         id: 2,
-        done: false
+        done: true
       },
       {
         title: "task 3",
         id: 3,
+        done: false
+      },
+      {
+        title: "task 4",
+        id: 4,
         done: true
       }
     ]
@@ -37,15 +42,20 @@ class TodoList extends React.Component {
   render() {
     return (
       <main>
-        <div class="container py-5">
+        <div className="container py-5">
           <TaskInput addTask={this.addTask}>
             <h1>inside</h1>
           </TaskInput>
           <hr />
-          <section class="task-container">
+          <section className="task-container">
             {this.state.tasks.map(task => {
               return (
-                <Task title={task.title} id={task.id} done={task.done}></Task>
+                <Task
+                  key={task.id}
+                  title={task.title}
+                  id={task.id}
+                  done={task.done}
+                ></Task>
               );
             })}
           </section>
