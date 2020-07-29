@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+// import validator from "validator";
 export default class TaskInput extends Component {
   state = {
     new_task_title: ""
@@ -7,7 +7,9 @@ export default class TaskInput extends Component {
 
   onSubmitHandler = event => {
     event.preventDefault();
-    this.props.addTask(this.state.new_task_title);
+    if (this.state.new_task_title !== "") {
+      this.props.addTask(this.state.new_task_title);
+    }
     this.setState({
       new_task_title: ""
     });

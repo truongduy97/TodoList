@@ -1,7 +1,7 @@
 import React from "react";
 import TaskInput from "../TaskInput";
 import Task from "../Task";
-
+import NoTaskImage from "../../assets/3281755.jpg";
 class TodoList extends React.Component {
   state = {
     tasks: [
@@ -60,6 +60,7 @@ class TodoList extends React.Component {
       tasks: new_tasks
     });
   };
+  img_style = { width: "50%" };
   render() {
     return (
       <main>
@@ -67,23 +68,38 @@ class TodoList extends React.Component {
           <TaskInput addTask={this.addTask}>
             <h1>inside</h1>
           </TaskInput>
-          <hr />
-          <p>2/4</p>
+
           <hr />
           <section className="task-container">
-            {this.state.tasks.map((task, index) => {
-              return (
-                <Task
-                  index={index}
-                  key={task.id}
-                  title={task.title}
-                  id={task.id}
-                  done={task.done}
-                  deleteTask={this.deleteTask}
-                  updateTask={this.updateTask}
-                ></Task>
-              );
-            })}
+            {this.state.tasks.length > 0 && (
+              <p>
+                {this.state.tasks.reduce((total, task) => {
+                  if (task.done) {
+                    return (total = total + 1);
+                  } else {
+                    return total;
+                  }
+                }, 0)}
+                /{this.state.tasks.length}
+              </p>
+            )}
+            {this.state.tasks.length > 0 ? (
+              this.state.tasks.map((task, index) => {
+                return (
+                  <Task
+                    index={index}
+                    key={task.id}
+                    title={task.title}
+                    id={task.id}
+                    done={task.done}
+                    deleteTask={this.deleteTask}
+                    updateTask={this.updateTask}
+                  ></Task>
+                );
+              })
+            ) : (
+              <img src={NoTaskImage} style={this.img_style} />
+            )}
           </section>
         </div>
       </main>
