@@ -4,28 +4,7 @@ import Task from "../Task";
 import NoTaskImage from "../../assets/3281755.jpg";
 class TodoList extends React.Component {
   state = {
-    tasks: [
-      {
-        title: "task 1",
-        id: 1,
-        done: false
-      },
-      {
-        title: "task 2",
-        id: 2,
-        done: true
-      },
-      {
-        title: "task 3",
-        id: 3,
-        done: false
-      },
-      {
-        title: "task 4",
-        id: 4,
-        done: true
-      }
-    ]
+    tasks: []
   };
 
   addTask = title => {

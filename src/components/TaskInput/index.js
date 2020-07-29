@@ -10,6 +10,9 @@ export default class TaskInput extends Component {
     if (this.state.new_task_title !== "") {
       this.props.addTask(this.state.new_task_title);
     }
+    // if (validator.isEmpty(!this.state.new_task_title)) {
+    //   this.props.addTask(this.state.new_task_title);
+    // }
     this.setState({
       new_task_title: ""
     });
